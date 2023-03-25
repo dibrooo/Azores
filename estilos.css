@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap"); /*importa a fonte*/
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Didact Gothic", sans-serif;
+  font-size: 20px;
+}
+
+::selection {
+  /*serve para modificar a seleção de texto*/
+  background-color: #14045c;
+  color: white;
+}
+
+body {
+  background-color: #dfdfdf;
+}
+
+/* MENU */
+.azores_logo {
+  width: 120px;
+}
+
+.menu {
+  display: flex; /*https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
+  justify-content: space-between; /*coloca os itens da direita e esquerda na sua extremidade e fica mais fácil colocar um item no meio*/
+  align-items: center;
+  padding: 30px 15%;
+  height: 100px;
+  width: 100%;
+  background: #14045c;
+}
+
+.menu nav ul {
+  list-style: none;
+}
+
+.menu nav ul li {
+  display: inline-block; /*coloco as lis em uma única linha*/
+  height: 40px;
+  width: 140px;
+  text-align: center;
+  justify-content: center;
+  padding: 7px 20px;
+}
+
+.menu nav ul li a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease 0s; /*transição para quando passar o rato por cima*/
+}
+
+.menu nav ul li:hover {
+  background-color: #fed12e;
+}
+
+.menu nav ul li:hover a {
+  color: #14045c;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.home {
+  width: 120px;
+}
+
+.home img {
+  width: 70px;
+  padding: 9px 25px;
+  background-color: white;
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
+}
+
+.home:hover img {
+  background-color: #fed12e;
+}
+
+/* MENU ATIVO */
+.menu nav ul li.active {
+  background-color: #fed12e;
+}
+
+.menu nav ul li.active a {
+  color: #14045c;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* MAPA */
+.map_body {
+  position: absolute;
+  width: 100%;
+  background-color: rgb(155, 196, 243);
+}
+
+.mapa {
+  position: absolute;
+  height: 800px;
+  margin-left: 19%;
+}
+
+.mapa svg {
+  width: 90%;
+}
+
+.mapa svg path {
+  fill: #2b9758;
+  stroke: #2b9758;
+  z-index: 0;
+}
+
+.mapa svg path:hover {
+  fill: #32c272;
+  stroke: #e6e6e6;
+}
+
+.mapa p {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #14045c;
+  outline: 2px solid white;
+  outline-offset: -6px;
+  width: 150px;
+  height: 50px;
+}
+
+/* SLIDER */
+.slider {
+  position: relative;
+  display: block;
+  margin: 30px auto;
+  height: 800px;
+  width: 75%;
+}
+
+.ilha {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.ilha h1 {
+  position: absolute;
+  margin-left: 35%;
+  text-align: center;
+  font-size: 50px;
+  width: 30%;
+  height: 70px;
+  background-color: #1089ad;
+  border-radius: 15px;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 7px;
+}
+
+.ilha img {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 25%;
+  width: 50%;
+}
+
+.ilha p {
+  width: 70%;
+  margin-top: 530px;
+  margin-left: 15%;
+  text-align: center;
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 80px;
+  padding: 12px;
+  border: solid black;
+  border-width: 0 3px 3px 0; /*coloca uma borda em dois cantos para ficar no formato de um ângulo reto*/
+}
+
+.back_arrow {
+  position: absolute;
+  left: 30px;
+  top: 300px;
+  transform: rotate(
+    135deg
+  ); /*rotaciona a seta para ficar apontado para a esquerda*/
+}
+
+.next_arrow {
+  position: absolute;
+  right: 30px;
+  top: 300px;
+  transform: rotate(
+    -45deg
+  ); /*rotaciona a seta para ficar apontado para a direita*/
+}
+
+[id^="ilha"] {
+  /*seleciona todos os elementos com id começado por "ilha"*/
+  display: none;
+}
+
+.ilha_1 {
+  z-index: 20; /*z-index é a sobreposição dos elementos*/
+  opacity: 1;
+}
+/*:target representa um único elemento (o elemento alvo) com uma id correspondente ao fragmento da URL.*/
+*:target ~ .ilha_1 {
+  opacity: 0;
+}
+#ilha_1:target ~ .ilha_1 {
+  opacity: 1;
+}
+#ilha_2:target ~ .ilha_2,
+#ilha_3:target ~ .ilha_3,
+#ilha_4:target ~ .ilha_4,
+#ilha_5:target ~ .ilha_5 {
+  opacity: 1;
+  z-index: 30;
+}
+
+/* INFO RESUMIDA DAS ILHAS */
+.info {
+  position: absolute;
+  margin-top: -490px;
+  margin-left: 220px;
+  padding: 10px 30px;
+  width: 580px;
+  background-color: #14045c;
+  color: white;
+  z-index: 50;
+  border: solid white;
+  display: none;
+}
+
+.info h2 {
+  text-indent: -20px;
+  font-size: 25px;
+  letter-spacing: 2px;
+  text-decoration: underline 3px #fed12e;
+}
+
+.info b {
+  letter-spacing: 2px;
+}
+
+.info ul {
+  list-style: circle;
+}
+
+.info button {
+  position: absolute;
+  margin-left: 400px;
+  margin-top: -85px;
+  padding: 5px 10px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: none;
+  border: 2px solid white;
+  transition: 0.8s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.info button:hover {
+  color: #14045c;
+  background-color: white;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 46%;
+  padding: 15px 0;
+  background-color: #14045c;
+}
+
+.footer h2 {
+  letter-spacing: 1.5px;
+  padding: 0px 15px;
+  color: white;
+}
+
+.footer p {
+  padding: 0px 30px;
+  color: white;
+}
